@@ -1,0 +1,223 @@
+<!-- Hero -->
+<section class="relative overflow-hidden bg-white pt-36 pb-24 sm:pt-44 sm:pb-32">
+  <div class="absolute inset-0 tech-grid"></div>
+  <div class="absolute -top-32 -left-24 w-[26rem] h-[26rem] rounded-full bg-brand-300/30 blur-3xl animate-blob"></div>
+  <div class="absolute top-10 -right-32 w-[30rem] h-[30rem] rounded-full bg-brand-500/20 blur-3xl animate-blob-slow"></div>
+
+  <div class="relative section !py-0 grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
+    <div>
+      <span class="eyebrow" appReveal="up">Estudio de Desarrollo de Software</span>
+
+      <h1 class="mt-6 font-display text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] text-brand-950" appReveal="up" [revealDelay]="0.1">
+        Construimos el <span class="text-gradient">Futuro</span> Web
+      </h1>
+
+      <p class="mt-6 max-w-xl text-lg text-slate-600 leading-relaxed" appReveal="up" [revealDelay]="0.2">
+        En AC Dev Studio fusionamos diseño de élite y código de alto rendimiento. Sitios web,
+        aplicaciones a medida y sistemas de gestión, construidos para escalar.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-4" appReveal="up" [revealDelay]="0.3">
+        <a routerLink="/contacto" class="btn-primary">
+          Cotiza tu proyecto
+          <app-icon name="arrow-right" [size]="18" />
+        </a>
+        <a routerLink="/portafolio" class="btn-outline">Ver portafolio</a>
+      </div>
+
+      <div class="mt-14 grid grid-cols-3 gap-6 max-w-md" appReveal="up" [revealDelay]="0.4">
+        <div>
+          <p class="font-display text-3xl font-bold text-brand-950">
+            <span [appCounter]="3" counterSuffix="+">0</span>
+          </p>
+          <p class="mt-1 text-xs font-medium text-slate-500">Proyectos entregados</p>
+        </div>
+        <div>
+          <p class="font-display text-3xl font-bold text-brand-950">
+            <span [appCounter]="100" counterSuffix="%">0</span>
+          </p>
+          <p class="mt-1 text-xs font-medium text-slate-500">Código a medida</p>
+        </div>
+        <div>
+          <p class="font-display text-3xl font-bold text-brand-950">
+            <span [appCounter]="24" counterSuffix="/7">0</span>
+          </p>
+          <p class="mt-1 text-xs font-medium text-slate-500">Soporte directo</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative hidden lg:block" appReveal="scale" [revealDelay]="0.2">
+      <div class="tilt-card card !rounded-3xl p-6 bg-brand-950 text-slate-200 font-mono text-sm shadow-2xl shadow-brand-900/30" appTilt>
+        <div class="flex items-center gap-1.5 mb-5">
+          <span class="w-3 h-3 rounded-full bg-red-400/80"></span>
+          <span class="w-3 h-3 rounded-full bg-amber-300/80"></span>
+          <span class="w-3 h-3 rounded-full bg-emerald-400/80"></span>
+          <span class="ml-3 text-xs text-slate-400">acdevstudio.ts</span>
+        </div>
+        <pre class="leading-relaxed whitespace-pre-wrap"><code
+><span class="text-brand-300">const</span> <span class="text-white">studio</span> = &#123;
+  name: <span class="text-emerald-300">'AC Dev Studio'</span>,
+  stack: [<span class="text-emerald-300">'Angular'</span>, <span class="text-emerald-300">'Firebase'</span>, <span class="text-emerald-300">'TypeScript'</span>],
+  focus: <span class="text-emerald-300">'rendimiento + diseño'</span>,
+  entrega(): <span class="text-brand-300">Producto</span> &#123;
+    <span class="text-brand-300">return</span> <span class="text-white">calidad</span>.premium();
+  &#125;
+&#125;;</code></pre>
+      </div>
+      <div class="absolute -bottom-6 -left-8 card !rounded-2xl px-5 py-4 flex items-center gap-3 shadow-xl">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+          <app-icon name="check" [size]="18" />
+        </span>
+        <div>
+          <p class="text-sm font-bold text-brand-950">Build exitoso</p>
+          <p class="text-xs text-slate-500">0 errores · listo para producción</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tech marquee -->
+<section class="border-y border-slate-100 bg-slate-50/70 py-8 overflow-hidden">
+  <div class="flex whitespace-nowrap">
+    <div class="marquee-track flex shrink-0 gap-14 pr-14">
+      @for (tech of stack; track tech) {
+        <span class="text-lg font-display font-semibold text-slate-400">{{ tech }}</span>
+      }
+    </div>
+    <div class="marquee-track flex shrink-0 gap-14 pr-14" aria-hidden="true">
+      @for (tech of stack; track tech) {
+        <span class="text-lg font-display font-semibold text-slate-400">{{ tech }}</span>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section">
+  <div class="max-w-2xl" appReveal="up">
+    <span class="eyebrow">Lo que hacemos</span>
+    <h2 class="mt-5 font-display text-4xl sm:text-5xl font-bold text-brand-950">
+      Soluciones digitales <span class="text-gradient">de punta a punta</span>
+    </h2>
+    <p class="mt-5 text-lg text-slate-600">
+      Del primer boceto al despliegue en producción, cubrimos cada etapa del desarrollo de tu producto.
+    </p>
+  </div>
+
+  <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    @for (service of services; track service.title; let i = $index) {
+      <div class="tilt-card card p-8" appTilt appReveal="up" [revealDelay]="0.08 * i">
+        <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+          <app-icon [name]="service.icon" [size]="22" />
+        </span>
+        <h3 class="mt-5 font-display text-xl font-bold text-brand-950">{{ service.title }}</h3>
+        <p class="mt-3 text-sm leading-relaxed text-slate-600">{{ service.description }}</p>
+      </div>
+    }
+  </div>
+
+  <div class="mt-12 text-center" appReveal="up">
+    <a routerLink="/servicios" class="btn-outline">
+      Ver todos los servicios
+      <app-icon name="arrow-right" [size]="18" />
+    </a>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="relative overflow-hidden bg-brand-950 py-24 sm:py-28">
+  <div class="absolute inset-0 tech-grid-dark"></div>
+  <div class="relative section !py-0">
+    <div class="max-w-2xl" appReveal="up">
+      <span class="eyebrow !bg-white/10 !text-brand-300">Nuestro proceso</span>
+      <h2 class="mt-5 font-display text-4xl sm:text-5xl font-bold text-white">Así trabajamos, sin sorpresas</h2>
+      <p class="mt-5 text-lg text-slate-300">
+        Un proceso claro, con entregas visibles en cada etapa, para que siempre sepas en qué va tu proyecto.
+      </p>
+    </div>
+
+    <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      @for (step of process; track step.title; let i = $index) {
+        <div class="relative" appReveal="up" [revealDelay]="0.1 * i">
+          <span class="font-display text-6xl font-bold text-white/10">0{{ i + 1 }}</span>
+          <span class="mt-[-2.25rem] flex h-12 w-12 items-center justify-center rounded-xl bg-brand-500/20 text-brand-300">
+            <app-icon [name]="step.icon" [size]="22" />
+          </span>
+          <h3 class="mt-5 font-display text-lg font-bold text-white">{{ step.title }}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">{{ step.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio preview -->
+<section class="section">
+  <div class="flex flex-wrap items-end justify-between gap-6" appReveal="up">
+    <div class="max-w-xl">
+      <span class="eyebrow">Proyectos</span>
+      <h2 class="mt-5 font-display text-4xl sm:text-5xl font-bold text-brand-950">
+        Trabajo real, <span class="text-gradient">resultados reales</span>
+      </h2>
+    </div>
+    <a routerLink="/portafolio" class="btn-outline shrink-0">
+      Ver portafolio completo
+      <app-icon name="arrow-right" [size]="18" />
+    </a>
+  </div>
+
+  <div class="mt-14 grid gap-6 md:grid-cols-3">
+    @for (project of projects; track project.slug; let i = $index) {
+      <a
+        routerLink="/portafolio"
+        class="card group flex flex-col overflow-hidden"
+        appReveal="up"
+        [revealDelay]="0.1 * i"
+      >
+        <div
+          class="flex h-40 items-center justify-center p-8"
+          [style.background]="'linear-gradient(135deg,' + project.accentFrom + ',' + project.accentTo + ')'"
+        >
+          @if (project.logo) {
+            <img [src]="project.logo" [alt]="project.name" class="max-h-16 w-auto brightness-0 invert" />
+          } @else {
+            <span class="font-display text-2xl font-bold text-white/90">{{ project.name }}</span>
+          }
+        </div>
+        <div class="p-6">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-700">{{ project.category }}</span>
+          <h3 class="mt-2 font-display text-lg font-bold text-brand-950 group-hover:text-brand-700 transition-colors">
+            {{ project.name }}
+          </h3>
+        </div>
+      </a>
+    }
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section !pt-0">
+  <div class="relative overflow-hidden rounded-3xl bg-brand-900 px-8 py-16 sm:px-16 sm:py-20 text-center" appReveal="scale">
+    <div class="absolute inset-0 tech-grid-dark opacity-50"></div>
+    <div class="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-brand-300/20 blur-3xl animate-blob"></div>
+    <div class="relative">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white max-w-2xl mx-auto">
+        ¿Tienes un proyecto en mente? Hagámoslo realidad.
+      </h2>
+      <p class="mt-4 text-slate-300 max-w-xl mx-auto">
+        Cuéntanos tu idea y te respondemos con una propuesta clara, sin compromisos.
+      </p>
+      <div class="mt-9 flex flex-wrap justify-center gap-4">
+        <a routerLink="/contacto" class="btn-primary !bg-white !text-brand-900 !shadow-none hover:!bg-brand-50">
+          Cotiza tu proyecto
+          <app-icon name="arrow-right" [size]="18" />
+        </a>
+        <a href="mailto:acdevstudio1@gmail.com" class="btn-outline !border-white/40 !text-white hover:!bg-white/10">
+          acdevstudio1&#64;gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+<footer class="relative bg-brand-950 text-slate-300 overflow-hidden">
+  <div class="absolute inset-0 tech-grid-dark opacity-40 pointer-events-none"></div>
+  <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 sm:px-8 pt-16 pb-10">
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-1">
+        <a routerLink="/" class="flex items-center gap-2.5">
+          <img src="/icon.svg" alt="" width="32" height="32" class="h-8 w-8" />
+          <span class="font-display font-bold text-lg text-white">AC Dev Studio</span>
+        </a>
+        <p class="mt-4 text-sm leading-relaxed text-slate-400 max-w-xs">
+          Estudio de desarrollo de software. Convertimos ideas en productos digitales rápidos,
+          escalables y con diseño de nivel profesional.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="font-display font-semibold text-white text-sm uppercase tracking-wider">Navegación</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li><a routerLink="/" class="hover:text-brand-300 transition-colors">Inicio</a></li>
+          <li><a routerLink="/servicios" class="hover:text-brand-300 transition-colors">Servicios</a></li>
+          <li><a routerLink="/portafolio" class="hover:text-brand-300 transition-colors">Portafolio</a></li>
+          <li><a routerLink="/nosotros" class="hover:text-brand-300 transition-colors">Nosotros</a></li>
+          <li><a routerLink="/contacto" class="hover:text-brand-300 transition-colors">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-display font-semibold text-white text-sm uppercase tracking-wider">Servicios</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          @for (service of services; track service) {
+            <li><a routerLink="/servicios" class="hover:text-brand-300 transition-colors">{{ service }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-display font-semibold text-white text-sm uppercase tracking-wider">Contacto</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li>
+            <a [href]="'mailto:' + email" class="hover:text-brand-300 transition-colors break-all">{{ email }}</a>
+          </li>
+          <li>
+            <a [href]="'tel:' + phoneTel" class="hover:text-brand-300 transition-colors">{{ phoneDisplay }}</a>
+          </li>
+          <li>
+            <a
+              [href]="whatsappHref"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 mt-1 px-4 py-2 rounded-full bg-white/10 hover:bg-white/15 text-white text-sm font-semibold transition-colors"
+            >
+              Escríbenos por WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <p>&copy; {{ year }} AC Dev Studio. Todos los derechos reservados.</p>
+      <p>Diseñado y desarrollado por AC Dev Studio · México</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,81 @@
+<!-- Hero -->
+<section class="relative overflow-hidden bg-white pt-36 pb-16 sm:pt-44 sm:pb-20">
+  <div class="absolute inset-0 tech-grid"></div>
+  <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-brand-300/25 blur-3xl animate-blob"></div>
+
+  <div class="relative section !py-0 max-w-3xl">
+    <span class="eyebrow" appReveal="up">Portafolio</span>
+    <h1 class="mt-6 font-display text-5xl sm:text-6xl font-bold text-brand-950" appReveal="up" [revealDelay]="0.1">
+      Proyectos que <span class="text-gradient">hablan</span> por sí solos
+    </h1>
+    <p class="mt-6 text-lg text-slate-600 leading-relaxed" appReveal="up" [revealDelay]="0.2">
+      Una muestra de los sistemas y plataformas que hemos diseñado y desarrollado para negocios reales.
+    </p>
+  </div>
+</section>
+
+<!-- Filters -->
+<section class="section !pt-0">
+  <div class="flex flex-wrap gap-3" appReveal="up">
+    @for (category of categories; track category) {
+      <button
+        type="button"
+        (click)="setCategory(category)"
+        class="rounded-full px-5 py-2.5 text-sm font-semibold transition-all"
+        [class.bg-brand-900]="activeCategory() === category"
+        [class.text-white]="activeCategory() === category"
+        [class.bg-slate-100]="activeCategory() !== category"
+        [class.text-slate-600]="activeCategory() !== category"
+        [class.hover:bg-slate-200]="activeCategory() !== category"
+      >
+        {{ category }}
+      </button>
+    }
+  </div>
+
+  <div class="mt-10 grid gap-8 md:grid-cols-2">
+    @for (project of filteredProjects(); track project.slug; let i = $index) {
+      <article class="tilt-card card overflow-hidden flex flex-col" appTilt appReveal="up" [revealDelay]="0.08 * i">
+        <div
+          class="flex h-56 items-center justify-center p-10"
+          [style.background]="'linear-gradient(135deg,' + project.accentFrom + ',' + project.accentTo + ')'"
+        >
+          @if (project.logo) {
+            <img [src]="project.logo" [alt]="project.name" class="max-h-20 w-auto brightness-0 invert" />
+          } @else {
+            <span class="font-display text-3xl font-bold text-white text-center">{{ project.name }}</span>
+          }
+        </div>
+        <div class="flex flex-1 flex-col p-8">
+          <div class="flex items-center justify-between gap-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-700">{{ project.category }}</span>
+            <span class="text-xs font-semibold text-slate-400">Proyecto privado</span>
+          </div>
+          <h2 class="mt-2 font-display text-2xl font-bold text-brand-950">{{ project.name }}</h2>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 flex-1">{{ project.description }}</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            @for (tag of project.tags; track tag) {
+              <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">{{ tag }}</span>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section !pt-0 text-center">
+  <div class="rounded-3xl bg-slate-50 border border-slate-100 px-8 py-14 sm:px-16" appReveal="scale">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold text-brand-950">¿Quieres ser el próximo caso de éxito?</h2>
+    <p class="mt-4 text-slate-600 max-w-xl mx-auto">
+      Hablemos de tu proyecto y construyamos algo de lo que también quieras presumir.
+    </p>
+    <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <a routerLink="/contacto" class="btn-primary">
+        Cotiza tu proyecto
+        <app-icon name="arrow-right" [size]="18" />
+      </a>
+    </div>
+  </div>
+</section>

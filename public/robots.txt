@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://acdevstudio.com/sitemap.xml

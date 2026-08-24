@@ -1,0 +1,83 @@
+<nav
+  class="fixed top-0 inset-x-0 z-50 transition-all duration-300"
+  [class.glass-nav]="scrolled() && !menuOpen()"
+  [class.bg-white]="menuOpen()"
+  [class.shadow-lg]="menuOpen()"
+  [class.py-3]="scrolled() || menuOpen()"
+  [class.py-5]="!scrolled() && !menuOpen()"
+>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
+    <a routerLink="/" (click)="closeMenu()" class="flex items-center gap-2.5 shrink-0" aria-label="AC Dev Studio, inicio">
+      <img src="/icon.svg" alt="" width="34" height="34" class="h-8 w-8" />
+      <span class="font-display font-bold text-lg tracking-tight text-brand-950">
+        AC <span class="text-gradient">Dev Studio</span>
+      </span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-1 font-medium text-slate-700">
+      @for (link of links; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="text-brand-700 bg-brand-50"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          class="px-4 py-2 rounded-full text-sm transition-colors hover:text-brand-700 hover:bg-brand-50"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </div>
+
+    <div class="hidden lg:flex items-center gap-3">
+      <a [href]="'tel:' + phoneTel" class="text-sm font-semibold text-slate-600 hover:text-brand-700 transition-colors">
+        477 845 0425
+      </a>
+      <a
+        routerLink="/contacto"
+        class="px-5 py-2.5 rounded-full text-sm font-bold text-white bg-brand-900 hover:bg-brand-700 hover:-translate-y-0.5 transition-all shadow-md shadow-brand-900/20"
+      >
+        Cotiza tu proyecto
+      </a>
+    </div>
+
+    <button
+      type="button"
+      class="lg:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5 -mr-2"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-label="Abrir menú de navegación"
+    >
+      <span class="block h-0.5 w-6 bg-brand-950 rounded-full transition-all duration-300" [class.rotate-45]="menuOpen()" [class.translate-y-2]="menuOpen()"></span>
+      <span class="block h-0.5 w-6 bg-brand-950 rounded-full transition-all duration-300" [class.opacity-0]="menuOpen()"></span>
+      <span class="block h-0.5 w-6 bg-brand-950 rounded-full transition-all duration-300" [class.-rotate-45]="menuOpen()" [class.-translate-y-2]="menuOpen()"></span>
+    </button>
+  </div>
+
+  <div
+    class="lg:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out"
+    [class.max-h-96]="menuOpen()"
+    [class.opacity-100]="menuOpen()"
+    [class.max-h-0]="!menuOpen()"
+    [class.opacity-0]="!menuOpen()"
+  >
+    <div class="px-5 pt-4 pb-6 flex flex-col gap-1">
+      @for (link of links; track link.path) {
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="text-brand-700 bg-brand-50"
+          [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          class="px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-brand-50"
+          (click)="closeMenu()"
+        >
+          {{ link.label }}
+        </a>
+      }
+      <a
+        routerLink="/contacto"
+        (click)="closeMenu()"
+        class="mt-2 px-4 py-3 rounded-xl text-base font-bold text-center text-white bg-brand-900"
+      >
+        Cotiza tu proyecto
+      </a>
+    </div>
+  </div>
+</nav>

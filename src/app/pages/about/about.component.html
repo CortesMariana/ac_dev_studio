@@ -1,0 +1,110 @@
+<!-- Hero -->
+<section class="relative overflow-hidden bg-white pt-36 pb-16 sm:pt-44 sm:pb-20">
+  <div class="absolute inset-0 tech-grid"></div>
+  <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-300/25 blur-3xl animate-blob"></div>
+
+  <div class="relative section !py-0 grid gap-12 lg:grid-cols-2 lg:items-center">
+    <div>
+      <span class="eyebrow" appReveal="up">Nosotros</span>
+      <h1 class="mt-6 font-display text-5xl sm:text-6xl font-bold text-brand-950" appReveal="up" [revealDelay]="0.1">
+        Programadores que <span class="text-gradient">diseñan</span>,
+        diseñadores que <span class="text-gradient">programan</span>
+      </h1>
+      <p class="mt-6 text-lg text-slate-600 leading-relaxed" appReveal="up" [revealDelay]="0.2">
+        AC Dev Studio nació de una idea simple: la mayoría de los negocios merecen software tan
+        bueno como el de las grandes empresas, sin la complejidad ni los costos de una agencia
+        tradicional. Por eso combinamos ingeniería sólida con diseño cuidado en cada proyecto.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-6" appReveal="scale" [revealDelay]="0.2">
+      <div class="card p-8 text-center">
+        <p class="font-display text-4xl font-bold text-brand-950">
+          <span [appCounter]="3" counterSuffix="+">0</span>
+        </p>
+        <p class="mt-2 text-sm text-slate-500">Proyectos entregados</p>
+      </div>
+      <div class="card p-8 text-center">
+        <p class="font-display text-4xl font-bold text-brand-950">
+          <span [appCounter]="100" counterSuffix="%">0</span>
+        </p>
+        <p class="mt-2 text-sm text-slate-500">Proyectos a medida</p>
+      </div>
+      <div class="card p-8 text-center">
+        <p class="font-display text-4xl font-bold text-brand-950">
+          <span [appCounter]="2" counterSuffix="+">0</span>
+        </p>
+        <p class="mt-2 text-sm text-slate-500">Tecnologías dominadas</p>
+      </div>
+      <div class="card p-8 text-center">
+        <p class="font-display text-4xl font-bold text-brand-950">
+          <span [appCounter]="24" counterSuffix="/7">0</span>
+        </p>
+        <p class="mt-2 text-sm text-slate-500">Soporte por WhatsApp</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission / Vision -->
+<section class="section grid gap-6 md:grid-cols-2">
+  <div class="card p-10" appReveal="left">
+    <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+      <app-icon name="rocket" [size]="22" />
+    </span>
+    <h2 class="mt-5 font-display text-2xl font-bold text-brand-950">Misión</h2>
+    <p class="mt-3 text-slate-600 leading-relaxed">
+      Ayudar a negocios y emprendedores a crecer a través de software bien construido: rápido,
+      seguro y diseñado para durar.
+    </p>
+  </div>
+  <div class="card p-10" appReveal="right">
+    <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+      <app-icon name="compass" [size]="22" />
+    </span>
+    <h2 class="mt-5 font-display text-2xl font-bold text-brand-950">Visión</h2>
+    <p class="mt-3 text-slate-600 leading-relaxed">
+      Ser el estudio de desarrollo de referencia para negocios que buscan tecnología de nivel
+      profesional sin perder cercanía ni claridad en el proceso.
+    </p>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="bg-slate-50 border-y border-slate-100">
+  <div class="section">
+    <div class="max-w-2xl" appReveal="up">
+      <span class="eyebrow">Nuestros valores</span>
+      <h2 class="mt-5 font-display text-4xl sm:text-5xl font-bold text-brand-950">Cómo trabajamos</h2>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2">
+      @for (value of values; track value.title; let i = $index) {
+        <div class="card p-8" appReveal="up" [revealDelay]="0.08 * i">
+          <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+            <app-icon [name]="value.icon" [size]="22" />
+          </span>
+          <h3 class="mt-5 font-display text-lg font-bold text-brand-950">{{ value.title }}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">{{ value.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section text-center">
+  <div appReveal="scale">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold text-brand-950">Hablemos de tu próximo proyecto</h2>
+    <p class="mt-4 text-slate-600 max-w-xl mx-auto">
+      Sin letras chiquitas, sin presión. Solo una buena conversación sobre lo que necesitas.
+    </p>
+    <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <a routerLink="/contacto" class="btn-primary">
+        Cotiza tu proyecto
+        <app-icon name="arrow-right" [size]="18" />
+      </a>
+      <a routerLink="/portafolio" class="btn-outline">Ver portafolio</a>
+    </div>
+  </div>
+</section>
