@@ -23,16 +23,6 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     accentTo: '#6FC9D9',
   },
   {
-    slug: 'plataforma-capacitacion',
-    name: 'Plataforma de Capacitación Web',
-    category: 'Plataforma Web',
-    description:
-      'Portal para la gestión de cursos y capacitación empresarial, con seguimiento de avance y administración de contenidos.',
-    tags: ['Angular', 'Firebase', 'Portal Web'],
-    accentFrom: '#2E6DA8',
-    accentTo: '#16305F',
-  },
-  {
     slug: 'simon-quimica',
     name: 'Simón Química',
     category: 'Sitio Corporativo',
