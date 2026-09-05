@@ -4,7 +4,7 @@ import { IconComponent } from '../../core/components/icon/icon.component';
 import { CounterDirective } from '../../core/directives/counter.directive';
 import { RevealDirective } from '../../core/directives/reveal.directive';
 import { TiltDirective } from '../../core/directives/tilt.directive';
-import { PORTFOLIO_PROJECTS } from '../../core/constants/portfolio';
+import { VISIBLE_PORTFOLIO_PROJECTS } from '../../core/constants/portfolio';
 import { SERVICES } from '../../core/constants/services';
 import { SITE_URL } from '../../core/constants/site';
 import { SeoService } from '../../core/services/seo.service';
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   private readonly seo = inject(SeoService);
 
   readonly services = SERVICES.slice(0, 6);
-  readonly projects = PORTFOLIO_PROJECTS;
+  readonly projects = VISIBLE_PORTFOLIO_PROJECTS;
 
   readonly stack = ['Angular', 'TypeScript', 'Firebase', 'Tailwind CSS', 'Node.js', 'RxJS', 'GSAP', 'SCSS'];
 
