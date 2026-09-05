@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { IconComponent } from '../../core/components/icon/icon.component';
 import { RevealDirective } from '../../core/directives/reveal.directive';
 import { TiltDirective } from '../../core/directives/tilt.directive';
-import { PORTFOLIO_PROJECTS } from '../../core/constants/portfolio';
+import { VISIBLE_PORTFOLIO_PROJECTS } from '../../core/constants/portfolio';
 import { SITE_URL } from '../../core/constants/site';
 import { SeoService } from '../../core/services/seo.service';
 
@@ -16,7 +16,7 @@ import { SeoService } from '../../core/services/seo.service';
 export class PortfolioComponent implements OnInit {
   private readonly seo = inject(SeoService);
 
-  readonly projects = PORTFOLIO_PROJECTS;
+  readonly projects = VISIBLE_PORTFOLIO_PROJECTS;
   readonly categories = ['Todos', ...new Set(this.projects.map((p) => p.category))];
   readonly activeCategory = signal('Todos');
 

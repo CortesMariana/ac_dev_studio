@@ -8,6 +8,7 @@ export interface PortfolioProject {
   logoOnDark?: boolean;
   accentFrom: string;
   accentTo: string;
+  hidden?: boolean;
 }
 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
@@ -32,5 +33,21 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     logo: '/images/portfolio/simon-quimica-logo.svg',
     accentFrom: '#E2232A',
     accentTo: '#7a1216',
+    // Pendiente autorización del cliente para mostrarse públicamente.
+    hidden: true,
+  },
+  {
+    slug: 'fumigaciones-orgui',
+    name: 'Fumigaciones Orgui',
+    category: 'Sitio Corporativo',
+    description:
+      'Sitio web para empresa de control de plagas y desinfección con más de 30 años de experiencia y certificación COFEPRIS, enfocado en generar confianza y captar clientes en León, Guanajuato.',
+    tags: ['Diseño Web', 'SEO Local'],
+    accentFrom: '#2E9E4F',
+    accentTo: '#0F4C2E',
   },
 ];
+
+export const VISIBLE_PORTFOLIO_PROJECTS: PortfolioProject[] = PORTFOLIO_PROJECTS.filter(
+  (project) => !project.hidden,
+);
